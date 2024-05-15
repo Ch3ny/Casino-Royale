@@ -1,5 +1,5 @@
-export const getAllCats = async () => {
-  const req = await fetch("http://localhost:3000/cats", {
+export const getAllLogin = async () => {
+  const req = await fetch("http://localhost:3000/login", {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -14,7 +14,7 @@ export const getAllCats = async () => {
   }
 };
 export const getCatById = async (id) => {
-  const req = await fetch(`http://localhost:3000/cats/${id}`, {
+  const req = await fetch(`http://localhost:3000/login/${id}`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -30,7 +30,7 @@ export const getCatById = async (id) => {
 };
 
 export const createCat = async (formData) => {
-  const req = await fetch(`http://localhost:3000/cats`, {
+  const req = await fetch(`http://localhost:3000/login`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -47,7 +47,7 @@ export const createCat = async (formData) => {
 };
 
 export const updateCat = async (id, formData) => {
-  const req = await fetch(`http://localhost:3000/cats/${id}`, {
+  const req = await fetch(`http://localhost:3000/login/${id}`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -64,7 +64,7 @@ export const updateCat = async (id, formData) => {
 };
 
 export const deleteCat = async (id) => {
-  const req = await fetch(`http://localhost:3000/cats/${id}`, {
+  const req = await fetch(`http://localhost:3000/login/${id}`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
