@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { createCat } from "../../models/Cat";
+import { createCat } from "../../models/Login";
 
 export default function CatCreateForm() {
   //useState - vytvoreni promenne v reactu

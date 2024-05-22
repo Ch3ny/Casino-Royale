@@ -13,7 +13,7 @@ export const getAllLogin = async () => {
     payload: data.payload
   }
 };
-export const getCatById = async (id) => {
+export const getloginById = async (id) => {
   const req = await fetch(`http://localhost:3000/login/${id}`, {
     headers: {
       Accept: "application/json",
@@ -29,7 +29,7 @@ export const getCatById = async (id) => {
   }
 };
 
-export const createCat = async (formData) => {
+export const createLogin = async (formData) => {
   const req = await fetch(`http://localhost:3000/login`, {
     headers: {
       Accept: "application/json",
@@ -46,7 +46,7 @@ export const createCat = async (formData) => {
   }
 };
 
-export const updateCat = async (id, formData) => {
+export const updateLogin = async (id, formData) => {
   const req = await fetch(`http://localhost:3000/login/${id}`, {
     headers: {
       Accept: "application/json",
@@ -63,7 +63,7 @@ export const updateCat = async (id, formData) => {
   }
 };
 
-export const deleteCat = async (id) => {
+export const deleteLogin = async (id) => {
   const req = await fetch(`http://localhost:3000/login/${id}`, {
     headers: {
       Accept: "application/json",

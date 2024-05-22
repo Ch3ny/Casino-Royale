@@ -12,7 +12,7 @@ mongoose
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var catsRouter = require('./routes/logins');
+var loginRouter = require('./routes/logins');
 var dogsRouter = require('./routes/dogs');
 
 var app = express();

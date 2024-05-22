@@ -47,9 +47,8 @@ exports.deleteLogin = async (req, res) => {
 exports.updateLogin = async (req, res) => {
   try {
     const data = {
-      name: req.body.name,
-      legs: req.body.legs,
-      color: req.body.color,
+      username: req.body.username,
+      password: req.body.password
     };
     const result = await Login.findByIdAndUpdate(req.params.id, data);
     if (result) {
@@ -69,9 +68,8 @@ exports.updateLogin = async (req, res) => {
 exports.createLogin = async (req, res) => {
   try {
     const data = new Login({
-      name: req.body.name,
-      legs: req.body.legs,
-      color: req.body.color,
+     username: req.body.username,
+     password: req.body.password
     });
     const result = await data.save();
     if (result) {
