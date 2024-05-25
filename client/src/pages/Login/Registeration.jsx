@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './Login.css';
 
-const Login = () => {
+const Registration = () => {
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Add your login logic here
-    alert(`Logging in with Username: ${username} and Password: ${password}`);
+    // Add your registration logic here
+    alert(`Registered with Username: ${username}, Email: ${email}, Password: ${password}`);
   };
 
   return (
-    <div className="login-container">
+    <div className="registration-container">
       <form onSubmit={handleSubmit}>
-        <h2>Login</h2>
+        <h2>Register</h2>
         <div className="input-group">
           <label htmlFor="username">Username</label>
           <input
@@ -23,6 +23,16 @@ const Login = () => {
             id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
+        <div className="input-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
@@ -36,13 +46,10 @@ const Login = () => {
             required
           />
         </div>
-        <button type="submit">Login</button>
-        <p>
-          Don't have an account? <Link to="/register">Register here</Link>
-        </p>
+        <button type="submit">Register</button>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Registration;
