@@ -9,6 +9,7 @@ export default function AppRoutes() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<Login />} />
+        
       </Routes>
     </BrowserRouter>
   );
