@@ -1,4 +1,4 @@
-const Login = require("Casino/server/models/logins");
+const Login = require("../models/logins");
 
 exports.getAllLogins = async (req, res) => {
   try {
@@ -74,12 +74,12 @@ exports.createLogin = async (req, res) => {
     const result = await data.save();
     if (result) {
       return res.status(201).send({
-        msg: "Login created",
+        msg: "Account created",
         payload: result,
       });
     }
     res.status(500).send({
-      msg: "Login was not created",
+      msg: "Account was not created",
     });
   } catch (error) {
     res.status(500).send(error);

@@ -5,11 +5,27 @@ import './Login.css';
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Add your login logic here
-    alert(`Logging in with Username: ${username} and Password: ${password}`);
+    try {
+      const response = await fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        setMessage(data.message);
+      } else {
+        throw new Error(data.message);
+      }
+    } catch (error) {
+      setMessage(error.message);
+    }
   };
 
   return (
@@ -37,6 +53,7 @@ const Login = () => {
           />
         </div>
         <button type="submit">Login</button>
+        {message && <p>{message}</p>}
         <p>
           Don't have an account? <Link to="/register">Register here</Link>
         </p>
