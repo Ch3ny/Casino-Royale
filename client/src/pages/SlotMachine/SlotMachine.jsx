@@ -47,6 +47,7 @@ const SlotMachine = () => {
       <button onClick={spinReels}>Spin</button>
       <p>{message}</p>
     </div>
+    
   );
 };
 

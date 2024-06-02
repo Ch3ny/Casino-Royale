@@ -7,6 +7,29 @@ export default function MainPage() {
 
 
     <div className="LoginButton">
+
+    <div className="background">
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+   <span></span>
+</div>
      
       <Link to={"/roulette"}>
       <div className="container">
@@ -39,7 +62,15 @@ export default function MainPage() {
 </div>
 </Link>
 
-<Link to={"/guess"}><p className="tit">Guess</p></Link>
+<Link to={"/guess"}>
+<div className="contt">
+      <img className="imageee" src="https://global.discourse-cdn.com/business4/uploads/thunkable/original/3X/e/f/efc3ca99e9133da184ae8eb1dcc5ed3e6623b3ef.png"></img>
+  <p className="guess">Guess number</p>
+  <div className="overr"></div>
+  <div className="btnn"><a href="#"> Click here </a></div>
+</div></Link>
+
+
       
    </>
   );
