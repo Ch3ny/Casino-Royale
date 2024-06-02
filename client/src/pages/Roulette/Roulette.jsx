@@ -61,8 +61,8 @@ export default  () => {
   return (
     <>
 <Link to={"/slot"}><button className="button1">Slot</button></Link>
-      <Link to={"/guess"}><button className="button2">Guess the number</button></Link>
-      <Link to={"/scratch"}><button className="button3">Scratch cards</button></Link>
+      <Link to={"/scratch"}><button className="button2">Scratch cards</button></Link>
+      <Link to={"/guess"}><button className="button3">Guess the number</button></Link>
       <Link to={"/"}><button className="button4">Home</button></Link>
 
       <Wheel

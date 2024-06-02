@@ -67,6 +67,7 @@ console.log(message);
       <Link to={"/guess"}><button className="button3">Guess the number</button></Link>
       <Link to={"/"}><button className="button4">Home</button></Link>
       <h1>Mr. Mystery Slot</h1>
+      <div className="slots">
       <div className="slot-grid">
         {grid.flat().map((symbol, index) => (
           <div key={index} className="slot-cell">
@@ -78,6 +79,7 @@ console.log(message);
       <button onClick={spinReels}>Spin</button>
       <p>{message}</p>
       <p>Stav: {wallet.balance}</p>
+    </div>
     </div>
   );
 };

@@ -51,7 +51,7 @@ export default function MainPage() {
         <p className="textColor">Login</p>
       </Link></a>
     <a href="#"><Link to={"/about"}>About us</Link></a>
-    <a href="#"><Link to={"/TOS"}>Terms of Service</Link></a>
+    <a href="#"><Link to={"/Terms"}>Terms of Service</Link></a>
   </div>
 </div>
 

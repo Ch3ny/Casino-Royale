@@ -35,6 +35,7 @@ const GuessingGame = () => {
 
   return (
     <>
+    <div className='guessing'>
       <h1>Hadej číslo</h1>
       <input
         type="number"
@@ -45,6 +46,8 @@ const GuessingGame = () => {
       <p>{message}</p>
       <button onClick={handleRestart}>Začít znovu</button>
       <p>Stav: {wallet.balance}</p>
+      </div>
+      
       <Link to={"/slot"}><button className="button1">Slot</button></Link>
       <Link to={"/roulette"}><button className="button2">Roulette</button></Link>
       <Link to={"/scratch"}><button className="button3">Scratch cards</button></Link>
