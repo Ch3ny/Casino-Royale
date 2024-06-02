@@ -17,13 +17,13 @@ const GuessingGame = () => {
     const numberGuess = parseInt(guess, 10);
     if (numberGuess === randomNumber) {
       setMessage("Spravne");
-      wallet.add(120);
+      wallet.add(120); // Přičte 120 za správnou odpověď
     } else if (numberGuess > randomNumber) {
       setMessage("Moc");
-      wallet.subtract(10); 
+      wallet.subtract(10); // Odečte 10 za špatnou odpověď
     } else {
       setMessage("Malo");
-      wallet.subtract(10); 
+      wallet.subtract(10); // Odečte 10 za špatnou odpověď
     }
   };
 
