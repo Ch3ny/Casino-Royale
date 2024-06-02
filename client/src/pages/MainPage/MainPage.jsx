@@ -70,7 +70,13 @@ export default function MainPage() {
   <div className="btnn"><a href="#"> Click here </a></div>
 </div></Link>
 
-<Link to={"/scratch"}><div className="overr">STIRACI LOSY</div></Link>
+<Link to={"/guess"}>
+<div className="conttt">
+      <img className="imageeee" src="https://www.comparethelotto.com/images/scratch-bg-dealornodeal.jpg"></img>
+  <p className="guesss">Scratch cards</p>
+  <div className="overrr"></div>
+  <div className="btnnn"><a href="#"> Click here </a></div>
+</div></Link>
       
    </>
   );

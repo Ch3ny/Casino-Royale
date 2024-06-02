@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./ScratchCards.css";
+import { Link } from "react-router-dom";
 
 const prizes = ["🏅", "🥈", "🥉", "💎"];
 
@@ -69,8 +70,12 @@ const ScratchCard = () => {
 
   return (
     <div>
+
+
       <h1>Stírací losy</h1>
       <div className="scratch-card-container">
+
+     
         {cards.map((card, index) => (
           <div
             key={index}
@@ -83,6 +88,10 @@ const ScratchCard = () => {
       </div>
       <button onClick={resetGame} className="reset-btn">Novy los</button>
       <p>{message}</p>
+      <Link to={"/slot"}><button className="button1">Slot</button></Link>
+      <Link to={"/roulette"}><button className="button2">Roulette</button></Link>
+      <Link to={"/guess"}><button className="button3">Guess the number</button></Link>
+      <Link to={"/"}><button className="button4">Home</button></Link>
     </div>
   );
 };

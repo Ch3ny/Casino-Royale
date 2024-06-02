@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./SlotMachine.css";
+import { Link } from "react-router-dom";
 
 const symbols = ["🍎", "🍐", "🍊", "🍋", "🍌", "🍉"," 7️⃣"];
 
@@ -36,7 +37,13 @@ const SlotMachine = () => {
   };
 console.log(message);
   return (
+
+    
     <div className="slot-machine">
+      <Link to={"/slot"}><button className="button1">Scratch cards</button></Link>
+      <Link to={"/roulette"}><button className="button2">Roulette</button></Link>
+      <Link to={"/guess"}><button className="button3">Guess the number</button></Link>
+      <Link to={"/"}><button className="button4">Home</button></Link>
       <h1>Mr. Mystery Slot</h1>
       <div className="slot-grid">
         {grid.flat().map((symbol, index) => (
@@ -45,7 +52,7 @@ console.log(message);
           </div>
         ))}
       </div>
-      <button onClick={spinReels}>Spin</button>
+      <button className="btn" onClick={spinReels}>Spin</button>
       <p>{message}</p>
     </div>
     
