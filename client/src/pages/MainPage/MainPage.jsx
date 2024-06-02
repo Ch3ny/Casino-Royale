@@ -38,6 +38,8 @@ export default function MainPage() {
   <div className="btn"><a href="#"> Click here </a></div>
 </div>
 </Link>
+
+<Link to={"/guess"}><p className="tit">Guess</p></Link>
       
    </>
   );

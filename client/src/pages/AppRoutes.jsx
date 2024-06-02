@@ -3,6 +3,7 @@ import MainPage from "./MainPage/MainPage";
 import Login from "./Login/Login";
 import Registration from "./Login/Registeration";
 import Roulette from "./Roulette/Roulette";
+import GuessingGame from "./GuessingGame/GuessingGame";
 
 
 export default function AppRoutes() {
@@ -13,6 +14,7 @@ export default function AppRoutes() {
         <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/roulette" element={<Roulette />} />
+        <Route path="/guess" element={<GuessingGame/>} />
         
       </Routes>
     </BrowserRouter>
