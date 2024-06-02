@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: rgb(110, 5, 124);
+    background-color: rgb(71, 68, 71);
   }
   
   .login-container {
@@ -40,9 +40,9 @@ body {
     width: 100%;
     padding: 10px;
     border: none;
-    color: rgb(255, 255, 255);
     cursor: pointer;
     border-radius: 4px;
+
   }
   
   button:hover {
