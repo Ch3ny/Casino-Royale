@@ -4,6 +4,7 @@ import Login from "./Login/Login";
 import Registration from "./Login/Registeration";
 import Roulette from "./Roulette/Roulette";
 import GuessingGame from "./GuessingGame/GuessingGame";
+import SlotMachine from "./SlotMachine/SlotMachine";
 
 
 export default function AppRoutes() {
@@ -15,6 +16,7 @@ export default function AppRoutes() {
         <Route path="/login" element={<Login />} />
         <Route path="/roulette" element={<Roulette />} />
         <Route path="/guess" element={<GuessingGame/>} />
+        <Route path="/slot" element={<SlotMachine/>} />
         
       </Routes>
     </BrowserRouter>
