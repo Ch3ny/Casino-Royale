@@ -70,7 +70,7 @@ export default function MainPage() {
   <div className="btnn"><a href="#"> Click here </a></div>
 </div></Link>
 
-
+<Link to={"/scratch"}><div className="overr">STIRACI LOSY</div></Link>
       
    </>
   );

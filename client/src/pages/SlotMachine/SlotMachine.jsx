@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./SlotMachine.css";
 
 const symbols = ["🍎", "🍐", "🍊", "🍋", "🍌", "🍉"," 7️⃣"];
 
@@ -27,19 +28,19 @@ const SlotMachine = () => {
         return;
       }
       if (grid[i][0] === grid[i][1] && grid[i][1] === grid[i][2]) {
-        setMessage("Gratulace!");
+        setMessage("Vyhra!");
         return;
       }
     }
-    setMessage("Zkuste to znovu");
+    setMessage("Prohra!");
   };
-
+console.log(message);
   return (
-    <div>
+    <div className="slot-machine">
       <h1>Mr. Mystery Slot</h1>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", fontSize: "2em" }}>
+      <div className="slot-grid">
         {grid.flat().map((symbol, index) => (
-          <div key={index} style={{ border: "1px solid #ccc", padding: "10px", textAlign: "center" }}>
+          <div key={index} className="slot-cell">
             {symbol}
           </div>
         ))}

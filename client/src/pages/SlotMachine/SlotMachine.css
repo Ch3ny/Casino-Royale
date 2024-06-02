@@ -1,0 +1,17 @@
+.slot-machine {
+    display: grid;
+    gap: 20px;
+  }
+  
+  .slot-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 2em;
+  }
+  
+  .slot-cell {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  

@@ -7,6 +7,7 @@ import GuessingGame from "./GuessingGame/GuessingGame";
 import SlotMachine from "./SlotMachine/SlotMachine";
 import TOS from "./TOS/TOS";
 import About from "./About/About";
+import ScratchCards from "./ScratchCards/ScratchCards";
 
 export default function AppRoutes() {
   return (
@@ -20,6 +21,7 @@ export default function AppRoutes() {
         <Route path="/slot" element={<SlotMachine/>} />
         <Route path="/TOS" element={<TOS/>}/>
         <Route path="/about" element={<About/>}/>
+        <Route path="/scratch" element={<ScratchCards/>}/>
 
       </Routes>
     </BrowserRouter>
