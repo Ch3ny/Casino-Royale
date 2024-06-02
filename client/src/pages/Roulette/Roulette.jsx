@@ -76,7 +76,6 @@ export default  () => {
         }}
       />
       <button onClick={handleSpinClick}>SPIN</button>
-      <img src =""></img>
     </>
   )
 }
