@@ -1,7 +1,9 @@
 import "./MainPage.css";
 import { Link } from "react-router-dom";
+import React, { useState } from "react";
 
 export default function MainPage() {
+  const [balance, setBalance] = useState(1000);
   return (
     <>
 
@@ -52,6 +54,8 @@ export default function MainPage() {
     <a href="#"><Link to={"/TOS"}>Terms of Service</Link></a>
   </div>
 </div>
+
+<div className="balance">Balance: ${balance}</div>
 
 <Link to={"/slot"}>
       <div className="cont">

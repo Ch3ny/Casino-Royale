@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./SlotMachine.css";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
 import Wallet from "../Wallet/Wallet";
+=======
+>>>>>>> 83f053fdcba26faac66ecdbea07d5c662b139d7b
 
 const symbols = ["🍎", "🍐", "🍊", "🍋", "🍌", "🍉", "7️⃣"];
 
@@ -57,7 +60,10 @@ const SlotMachine = () => {
     setMessage("Prohra!");
   };
 
+<<<<<<< HEAD
 console.log(message);
+=======
+>>>>>>> 83f053fdcba26faac66ecdbea07d5c662b139d7b
   return (
 
     
@@ -74,12 +80,14 @@ console.log(message);
           </div>
         ))}
       </div>
+<<<<<<< HEAD
       <input type="number" value={betAmount} onChange={handleBetChange} />
+=======
+>>>>>>> 83f053fdcba26faac66ecdbea07d5c662b139d7b
       <button onClick={spinReels}>Spin</button>
       <p>{message}</p>
       <p>Stav: {wallet.balance}</p>
     </div>
-    
   );
 };
 
