@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Wheel } from 'react-custom-roulette'
+import { Link } from 'react-router-dom';
+import "./Roulette.css";
 
 
 const data = [
@@ -44,7 +46,7 @@ const data = [
 ];
 
 
-export default () => {
+export default  () => {
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
 
@@ -58,6 +60,11 @@ export default () => {
 
   return (
     <>
+<Link to={"/slot"}><button className="button1">Slot</button></Link>
+      <Link to={"/guess"}><button className="button2">Guess the number</button></Link>
+      <Link to={"/scratch"}><button className="button3">Scratch cards</button></Link>
+      <Link to={"/"}><button className="button4">Home</button></Link>
+
       <Wheel
         mustStartSpinning={mustSpin}
         prizeNumber={prizeNumber}
@@ -69,6 +76,7 @@ export default () => {
         }}
       />
       <button onClick={handleSpinClick}>SPIN</button>
+      <img src =""></img>
     </>
   )
 }

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import "./GuessingGame.css";
+import { Link } from 'react-router-dom';
 
 const GuessingGame = () => {
   const [randomNumber, setRandomNumber] = useState(generateRandomNumber());
@@ -26,18 +28,37 @@ const GuessingGame = () => {
     setMessage('');
   };
 
+  
+
   return (
-    <div>
+
+    
+    <>
+    
+
+
+      
+
       <h1>Hadej cislo</h1>
+      
       <input
         type="number"
         value={guess}
         onChange={(e) => setGuess(e.target.value)}
       />
+      
+      
       <button onClick={handleGuess}>Hadej</button>
       <p>{message}</p>
       <button onClick={handleRestart}>Zacit znovu</button>
-    </div>
+
+      <Link to={"/slot"}><button className="button1">Slot</button></Link>
+      <Link to={"/roulette"}><button className="button2">Roulette</button></Link>
+      <Link to={"/scratch"}><button className="button3">Scratch cards</button></Link>
+      <Link to={"/"}><button className="button4">Home</button></Link>
+    </>
+
+    
   );
 };
 

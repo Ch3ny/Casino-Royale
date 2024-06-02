@@ -491,3 +491,77 @@ img {
   transform-origin: 9vw 13vh;
   box-shadow: 40vmin 0 5.289127723292568vmin currentColor;
 }
+
+.imageeee {
+  position: absolute;
+  width: 500px;
+  height: 300px;
+  left: 0;
+}
+
+.guesss {
+  position: absolute;
+  width: 500px;
+  left: 0;
+  top: 120px;
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  z-index: 1;
+  transition: top .5s ease;
+}
+
+.conttt:hover .guesss {
+  top: 90px;
+}
+
+.btnnn {
+  position: absolute;
+  width: 500px;
+  left:0;
+  top: 180px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+
+.btnnn a {
+  width: 200px;
+  padding: 12px 48px;
+  text-align: center;
+  color: white;
+  border: solid 2px white;
+  z-index: 1;
+}
+
+.conttt:hover .btnnn {
+  opacity: 1;
+}
+
+.conttt {
+  position: relative;
+  margin-top: 50px;
+  width: 500px;
+  height: 300px;
+  position: absolute;
+  left: 1070px;
+  bottom: 100px;
+  
+}
+
+.overrr {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.5s ease;
+}
+
+.conttt:hover .overrr {
+  display: block;
+  background: rgba(0, 0, 0, .3);
+}

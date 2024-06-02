@@ -1,7 +1,16 @@
-import React, { useState } from 'react';
-import "./GuessingGame.css";
-import { Link } from 'react-router-dom';
-import Wallet from "../Wallet/Wallet";
+import React, { useState } from "react";
+import "./ScratchCards.css";
+
+const prizes = ["🏅", "🥈", "🥉", "💎"];
+
+const getRandomPrize = () => {
+  const randomIndex = Math.floor(Math.random() * prizes.length);
+  if (prizes[randomIndex] === "💎") {
+    return "💎";
+  } else {
+    return prizes[randomIndex];
+  }
+};
 
 const GuessingGame = () => {
   const [randomNumber, setRandomNumber] = useState(generateRandomNumber());
@@ -34,22 +43,22 @@ const GuessingGame = () => {
   };
 
   return (
-    <>
-      <h1>Hadej číslo</h1>
-      <input
-        type="number"
-        value={guess}
-        onChange={(e) => setGuess(e.target.value)}
-      />
-      <button onClick={handleGuess}>Hadej</button>
+    <div>
+      <h1>Stírací losy</h1>
+      <div className="scratch-card-container">
+        {cards.map((card, index) => (
+          <div
+            key={index}
+            onClick={() => scratchCard(index)}
+            className={`scratch-card ${revealed && "scratch-card-revealed"}`}
+          >
+            {card || "❓"}
+          </div>
+        ))}
+      </div>
+      <button onClick={resetGame} className="reset-btn">Novy los</button>
       <p>{message}</p>
-      <button onClick={handleRestart}>Začít znovu</button>
-      <p>Stav: {wallet.balance}</p>
-      <Link to={"/slot"}><button className="button1">Slot</button></Link>
-      <Link to={"/roulette"}><button className="button2">Roulette</button></Link>
-      <Link to={"/scratch"}><button className="button3">Scratch cards</button></Link>
-      <Link to={"/"}><button className="button4">Home</button></Link>
-    </>
+    </div>
   );
 };
 
