@@ -36,7 +36,7 @@ const SlotMachine = () => {
 
   return (
     <div>
-      <h1>Slot Machine</h1>
+      <h1>Mr. Mystery Slot</h1>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", fontSize: "2em" }}>
         {grid.flat().map((symbol, index) => (
           <div key={index} style={{ border: "1px solid #ccc", padding: "10px", textAlign: "center" }}>
