@@ -19,6 +19,7 @@ export default function AppRoutes() {
         <Route path="/guess" element={<GuessingGame/>} />
         <Route path="/slot" element={<SlotMachine/>} />
         <Route path="/TOS" element={<TOS/>}/>
+        <Route path="/about" element={<About/>}/>
 
       </Routes>
     </BrowserRouter>
