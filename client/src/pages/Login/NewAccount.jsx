@@ -6,7 +6,7 @@ export default function NewAccount() {
   return (
     <>
       <p>Account created: {id}</p>
-      <Link to={`/Account/${id}`}>
+      <Link to={`/account/${id}`}>
         <p>Main Page</p>
       </Link>
       <Link to={`/`}>

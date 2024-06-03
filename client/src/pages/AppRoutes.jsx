@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MainPage from "./MainPage/MainPage";
 import Login from "./Login/Login";
+import NewAccount from "./Login/NewAccount";
 import Registration from "./Login/Registeration";
 import Roulette from "./Roulette/Roulette";
 import GuessingGame from "./GuessingGame/GuessingGame";
@@ -22,6 +23,7 @@ export default function AppRoutes() {
         <Route path="/terms" element={<Terms/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/scratch" element={<ScratchCards/>}/>
+        <Route path="/account/:id"></Route>
 
       </Routes>
     </BrowserRouter>

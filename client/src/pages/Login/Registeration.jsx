@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import './Login.css';
+import { useNavigate } from 'react-router-dom';
+
 const Registration = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const navigate = useNavigate()
+  const redirectToSuccessPage = (id) => {
+    return navigate(`/account/${id}`);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -18,7 +24,9 @@ const Registration = () => {
       });
       const data = await response.json();
       if (response.ok) {
+        redirectToSuccessPage(account.payload._id);
         setMessage(data.message);
+        
       } else {
         throw new Error(data.message);
       }
@@ -28,7 +36,7 @@ const Registration = () => {
   };
 
   return (
-    <div className="registration-container">
+    <div className="login-container">
       <form onSubmit={handleSubmit}>
         <h2>Register</h2>
         <div className="input-group">
