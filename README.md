@@ -1,4 +1,4 @@
-<h1>PRACUJ DOKUD NEUMŘEŠ</h1><br>
+<h1 style={color = red}>PRACUJ DOKUD NEUMŘEŠ</h1><br>
 <br>
 <p>„Nejvíc zavřených dveří se nachází ve tvé mysli. “ <br>
 „Limit je mysl. “ <br>
