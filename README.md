@@ -1,1 +1,1 @@
-<h1>NIGGA</h1>
+<h1>PRACUJ DOKUD NEUMŘEŠ</h1>
