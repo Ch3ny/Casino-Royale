@@ -1,7 +1,7 @@
 import "./Terms.css";
 
 export default function Terms() {
-    (
+  return  (
         <>
         <a className="content">Terms of Service
 
