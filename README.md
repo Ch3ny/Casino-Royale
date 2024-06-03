@@ -1,9 +1,7 @@
-
-
-<h1>PRACUJ DOKUD NEUMŘEŠ</h1><br>
-<br>
-<p>„Nejvíc zavřených dveří se nachází ve tvé mysli. “ <br>
-„Limit je mysl. “ <br>
-„Možnosti jsou na to, aby se využily. “<br>
-„Budoucnost patří těm, kteří věří v krásu svých snů. “<br>
-„Nepřej si, aby to bylo lehčí; přej si, abys byl lepší. “</p>
+<div align="center">
+	<br>
+	<a href="https://github.com/sindresorhus/css-in-readme-like-wat/blame/main/header.svg">
+		<img src="header.svg" width="800" height="400" alt="Click to see the source">
+	</a>
+	<br>
+</div>
