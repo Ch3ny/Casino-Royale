@@ -23,7 +23,7 @@ export default function AppRoutes() {
         <Route path="/terms" element={<Terms/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/scratch" element={<ScratchCards/>}/>
-        <Route path="/account/:id"></Route>
+        <Route path="/account/:id" element={<NewAccount />} />
 
       </Routes>
     </BrowserRouter>

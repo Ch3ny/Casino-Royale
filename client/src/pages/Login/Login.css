@@ -1,51 +1,47 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: rgb(110, 5, 124);
-  }
-  
-  .login-container {
-    background-color: #050505;
-    padding: 20px;
-    box-shadow: 0 0 100px rgba(0, 0, 2, 0.1);
-    border-radius: 8px;
-    width: 300px;
-    text-align: center;
-  }
-  
-  h2 {
-    margin-bottom: 20px;
-  }
-  
-  .input-group {
-    margin-bottom: 15px;
-    text-align: left;
-  }
-  
-  .input-group label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .input-group input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-  }
-  
-  button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-  }
-  
-  button:hover {
-    background-color: #07ea1a;
-  }
-  
+.login-container {
+  background-color: #050505;
+  padding: 20px;
+  box-shadow: 0 0 100px rgba(0, 0, 2, 0.1);
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #07ea1a;
+}

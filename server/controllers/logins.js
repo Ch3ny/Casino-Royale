@@ -2,86 +2,57 @@ const Login = require("../models/logins");
 
 exports.getAllLogins = async (req, res) => {
   try {
-    const result = await Login.find();
-    if (result && result.length !== 0) {
-      return res.status(200).send({
-        msg: "Logins found!",
-        payload: result,
-      });
-    }
-    res.status(404).send({ msg: "Logins not found" });
+    const logins = await Login.find();
+    res.status(200).json({ msg: "Logins found", payload: logins });
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).json({ msg: "Error retrieving logins", error: error.message });
   }
 };
 
 exports.getLoginById = async (req, res) => {
   try {
-    const result = await Login.findById(req.params.id);
-    if (result) {
-      return res.status(200).send({
-        msg: "Login found",
-        payload: result,
-      });
+    const login = await Login.findById(req.params.id);
+    if (!login) {
+      return res.status(404).json({ msg: "Login not found" });
     }
-    res.status(404).send({ msg: "Login not found" });
+    res.status(200).json({ msg: "Login found", payload: login });
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).json({ msg: "Error retrieving login", error: error.message });
   }
 };
 
 exports.deleteLogin = async (req, res) => {
   try {
-    const result = await Login.findByIdAndDelete(req.params.id);
-    if (result) {
-      return res.status(200).send({
-        msg: "Login deleted",
-      });
+    const login = await Login.findByIdAndDelete(req.params.id);
+    if (!login) {
+      return res.status(404).json({ msg: "Login not found" });
     }
-    res.status(500).send({ msg: "Something went wrong" });
+    res.status(200).json({ msg: "Login deleted" });
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).json({ msg: "Error deleting login", error: error.message });
   }
 };
 
 exports.updateLogin = async (req, res) => {
   try {
-    const data = {
-      username: req.body.username,
-      password: req.body.password
-    };
-    const result = await Login.findByIdAndUpdate(req.params.id, data);
-    if (result) {
-      return res.status(200).send({
-        msg: "Login updated",
-        payload: result,
-      });
+    const { username, password } = req.body;
+    const login = await Login.findByIdAndUpdate(req.params.id, { username, password }, { new: true });
+    if (!login) {
+      return res.status(404).json({ msg: "Login not found" });
     }
-    res.status(500).send({
-      msg: "Login was not updated",
-    });
+    res.status(200).json({ msg: "Login updated", payload: login });
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).json({ msg: "Error updating login", error: error.message });
   }
 };
 
 exports.createLogin = async (req, res) => {
   try {
-    const data = new Login({
-     username: req.body.username,
-     password: req.body.password
-    });
-    const result = await data.save();
-    if (result) {
-      return res.status(201).send({
-        msg: "Account created",
-        payload: result,
-      });
-    }
-    res.status(500).send({
-      msg: "Account was not created",
-    });
+    const { username, password } = req.body;
+    const newLogin = new Login({ username, password });
+    const savedLogin = await newLogin.save();
+    res.status(201).json({ msg: "Login created", payload: savedLogin });
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).json({ msg: "Error creating login", error: error.message });
   }
 };

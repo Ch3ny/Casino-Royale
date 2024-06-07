@@ -1,79 +1,116 @@
-import React, { useState } from 'react';
-import './Login.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { createAccount, getAccounts } from "../../models/Accounts";
+import "./Login.css";
 
-const Registration = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
-  const navigate = useNavigate()
-  const redirectToSuccessPage = (id) => {
-    return navigate(`/account/${id}`);
+export default function Registration() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    passwordAgain: ""
+  });
+  const [info, setInfo] = useState("");
+  const navigate = useNavigate();
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch('http://localhost:5000/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, email, password }),
-      });
-      const data = await response.json();
-      if (response.ok) {
-        redirectToSuccessPage(account.payload._id);
-        setMessage(data.message);
-        
-      } else {
-        throw new Error(data.message);
-      }
-    } catch (error) {
-      setMessage(error.message);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const accounts = await getAccounts();
+    const isNameTaken = accounts.payload?.some((account) => account.name === formData.name);
+
+    if (isNameTaken) {
+      setInfo("Name already taken");
+      return;
+    }
+
+    if (formData.password !== formData.passwordAgain) {
+      setInfo("Passwords do not match");
+      return;
+    }
+
+    const account = await createAccount(formData);
+    if (account.status === 201) {
+      localStorage.setItem("name", formData.name);
+      localStorage.setItem("id", account.payload._id);
+      navigate(`/`);
+    } else {
+      setInfo(account.msg);
     }
   };
 
   return (
-    <div className="login-container">
-      <form onSubmit={handleSubmit}>
-        <h2>Register</h2>
-        <div className="input-group">
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
+    <div className="center-container">
+      <Link to={"/"}>
+        <h1 className="portfolio">Casino Royale</h1>
+      </Link>
+
+      <div className="separator"></div>
+
+      <div className="content">
+        <div className="login-container">
+          <h2>Sign up</h2>
+          <form id="register-form" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="username">Name:</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                placeholder="Enter name"
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                placeholder="Enter email"
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password:</label>
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                placeholder="Enter password"
+                onChange={handleInputChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="confirm-password">Password again:</label>
+              <input
+                type="password"
+                name="passwordAgain"
+                value={formData.passwordAgain}
+                placeholder="Enter password again"
+                onChange={handleInputChange}
+                required
+              />
+              <h5>{info}</h5>
+              <button type="submit" className="button-account">Create</button>
+            </div>
+            <h5>OR</h5>
+            <div className="form-group">
+              <Link to={"/login"}>
+                <button className="button-account">Sign in</button>
+              </Link>
+            </div>
+          </form>
         </div>
-        <div className="input-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="input-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Register</button>
-        {message && <p>{message}</p>}
-      </form>
+      </div>
     </div>
   );
-};
-
-export default Registration;
+}
