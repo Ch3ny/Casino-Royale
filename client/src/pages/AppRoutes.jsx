@@ -10,6 +10,7 @@ import Terms from "./Terms/Terms";
 import About from "./About/About";
 import ScratchCards from "./ScratchCards/ScratchCards";
 
+
 export default function AppRoutes() {
   return (
     <BrowserRouter>
@@ -24,6 +25,7 @@ export default function AppRoutes() {
         <Route path="/about" element={<About/>}/>
         <Route path="/scratch" element={<ScratchCards/>}/>
         <Route path="/account/:id" element={<NewAccount />} />
+
 
       </Routes>
     </BrowserRouter>

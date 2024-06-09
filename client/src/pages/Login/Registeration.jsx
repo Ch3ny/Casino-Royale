@@ -8,7 +8,7 @@ export default function Registration() {
     name: "",
     email: "",
     password: "",
-    passwordAgain: ""
+    passwordCheck: ""
   });
   const [info, setInfo] = useState("");
   const navigate = useNavigate();
@@ -21,26 +21,31 @@ export default function Registration() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const accounts = await getAccounts();
-    const isNameTaken = accounts.payload?.some((account) => account.name === formData.name);
+    try {
+      const accounts = await getAccounts();
+      const isNameTaken = accounts.payload?.some((account) => account.name === formData.name);
 
-    if (isNameTaken) {
-      setInfo("Name already taken");
-      return;
-    }
+      if (isNameTaken) {
+        setInfo("Name already taken");
+        return;
+      }
 
-    if (formData.password !== formData.passwordAgain) {
-      setInfo("Passwords do not match");
-      return;
-    }
+      if (formData.password !== formData.passwordCheck) {
+        setInfo("Passwords do not match");
+        return;
+      }
 
-    const account = await createAccount(formData);
-    if (account.status === 201) {
-      localStorage.setItem("name", formData.name);
-      localStorage.setItem("id", account.payload._id);
-      navigate(`/`);
-    } else {
-      setInfo(account.msg);
+      const account = await createAccount(formData);
+      if (account.status === 201) {
+        localStorage.setItem("name", formData.name);
+        localStorage.setItem("id", account.payload._id);
+        navigate(`/`);
+      } else {
+        setInfo(account.msg);
+      }
+    } catch (error) {
+      setInfo("An error occurred. Please try again.");
+      console.error("There was a problem with the registration:", error);
     }
   };
 
@@ -93,8 +98,8 @@ export default function Registration() {
               <label htmlFor="confirm-password">Password again:</label>
               <input
                 type="password"
-                name="passwordAgain"
-                value={formData.passwordAgain}
+                name="passwordCheck"
+                value={formData.passwordCheck}
                 placeholder="Enter password again"
                 onChange={handleInputChange}
                 required

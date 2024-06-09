@@ -1,47 +1,65 @@
+/* General styling for the body to center content */
+body {
+  background: linear-gradient(to right, #1a2a6c, #b21f1f, #fdbb2d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
 .center-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100vh;
+  justify-content: center;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.content {
+  width: 100%;
 }
 
 .login-container {
-  background-color: #050505;
-  padding: 20px;
-  box-shadow: 0 0 100px rgba(0, 0, 2, 0.1);
-  border-radius: 8px;
-  width: 300px;
-  text-align: center;
-}
-
-h2 {
-  margin-bottom: 20px;
+  width: 100%;
 }
 
 .form-group {
+  width: 100%;
   margin-bottom: 15px;
-  text-align: left;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
 }
 
 .form-group input {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
+  margin-top: 5px;
   box-sizing: border-box;
 }
 
-button {
+.button-account {
   width: 100%;
   padding: 10px;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
+  margin-top: 10px;
 }
 
-button:hover {
-  background-color: #07ea1a;
+.separator {
+  width: 80%;
+  height: 1px;
+  background-color: #ccc;
+  margin: 20px 0;
+}
+
+h1 {
+  margin: 0;
+  padding: 20px 0;
+}
+
+h2, h5 {
+  margin: 10px 0;
+  text-align: center;
 }

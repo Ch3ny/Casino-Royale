@@ -1,65 +1,90 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Login.css';
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { getAccounts } from "../../models/Accounts";
+import "./Login.css";
 
-const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
+export default function Registration() {
+  const [formData, setFormData] = useState({
+    name: "",
+    password: ""
+  });
+  const [info, setInfo] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch('http://localhost:5000/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      });
-      const data = await response.json();
-      if (response.ok) {
-        setMessage(data.message);
-      } else {
-        throw new Error(data.message);
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+
+  const loginForm = async () => {
+    const accounts = await getAccounts();
+    if (accounts.payload) {
+      const account = accounts.payload.find(
+        acc => acc.name === formData.name && acc.password === formData.password
+      );
+      if (account) {
+        localStorage.setItem("name", formData.name);
+        localStorage.setItem("id", account._id);
+        redirectToSuccesPage(account._id);
+        return;
       }
-    } catch (error) {
-      setMessage(error.message);
     }
+    setInfo("Wrong name or password");
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    loginForm();
+  };
+
+  const redirectToSuccesPage = (id) => {
+    navigate(`/account/${id}`);
   };
 
   return (
-    <div className="login-container">
-      <form onSubmit={handleSubmit}>
-        <h2>Login</h2>
-        <div className="input-group">
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
+    <div className="center-container">
+      <Link to={"/"}>
+        <h1 className="portfolio">Casino Royale</h1>
+      </Link>
+
+      <div className="separator"></div>
+
+      <div className="content">
+        <div className="login-container">
+          <h2>Sign in</h2>
+          <form id="login-form" onSubmit={handleLogin}>
+            <div className="form-group">
+              <label htmlFor="username">Name:</label>
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Enter name"
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password:</label>
+              <input
+                type="password"
+                name="password"
+                required
+                placeholder="Enter password"
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-group">
+              <h5>{info}</h5>
+              <button type="submit" className="button-account">Sign in</button>
+            </div>
+            <h5>OR</h5>
+            <div className="form-group">
+              <Link to={"/register"}>
+                <button className="button-account">Sign up</button>
+              </Link>
+            </div>
+          </form>
         </div>
-        <div className="input-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Login</button>
-        {message && <p>{message}</p>}
-        <p>
-          Don't have an account? <Link to="/register">Register here</Link>
-        </p>
-      </form>
+      </div>
     </div>
   );
-};
-
-export default Login;
+}

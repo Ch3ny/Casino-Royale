@@ -1,38 +1,26 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
-
 const app = express();
-const PORT = 5000;
+const port = 4000;  // Changed port to 4000
 
+app.use(cors({
+  origin: 'http://localhost:5173' // or any other origin you want to allow
+}));
+app.use(express.json());
 
-app.use(cors());
-app.use(bodyParser.json());
+let accounts = [];
 
-
-const users = [];
-
-
-app.post('/register', (req, res) => {
-  const { username, email, password } = req.body;
-  if (users.find(user => user.username === username || user.email === email)) {
-    return res.status(400).json({ message: 'User already exists' });
-  }
-  users.push({ username, email, password });
-  res.status(200).json({ message: 'User registered successfully' });
+app.post('/accounts', (req, res) => {
+  const { name, email, password } = req.body;
+  const newAccount = { id: accounts.length + 1, name, email, password };
+  accounts.push(newAccount);
+  res.status(201).json({ payload: newAccount, msg: 'Account created successfully' });
 });
 
-// Login endpoint
-app.post('/login', (req, res) => {
-  const { username, password } = req.body;
-  const user = users.find(user => user.username === username && user.password === password);
-  if (user) {
-    res.status(200).json({ message: 'Login successful' });
-  } else {
-    res.status(400).json({ message: 'Invalid username or password' });
-  }
+app.get('/accounts', (req, res) => {
+  res.status(200).json({ payload: accounts, msg: 'Accounts retrieved successfully' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });
