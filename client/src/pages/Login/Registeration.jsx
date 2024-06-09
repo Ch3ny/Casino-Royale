@@ -52,7 +52,7 @@ export default function Registration() {
   return (
     <div className="center-container">
       <Link to={"/"}>
-        <h1 className="portfolio">Casino Royale</h1>
+        <h1 className="header">Casino Royale</h1>
       </Link>
 
       <div className="separator"></div>

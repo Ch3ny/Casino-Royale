@@ -4,8 +4,8 @@ export default function NewAccount() {
   const { id } = useParams();
 
   return (
-    <>
-      <p>Your account: {id}</p>
+    <div>
+      <p>Your account ID: {id}</p>
 
       <Link to={`/account/${id}`}>
         <p>View Account</p>
@@ -14,6 +14,6 @@ export default function NewAccount() {
       <Link to="/">
         <p>Go home</p>
       </Link>
-    </>
+    </div>
   );
 }

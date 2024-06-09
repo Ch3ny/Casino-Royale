@@ -1,6 +1,6 @@
 export const getAccounts = async () => {
     try {
-      const req = await fetch("http://localhost:3000/accounts", {
+      const req = await fetch("http://localhost:5000/accounts", {
         headers: {
           "Content-Type": "application/json",
           "Accept": "application/json"
@@ -28,7 +28,7 @@ export const getAccounts = async () => {
   
   export const getAccount = async (id) => {
     try {
-      const req = await fetch(`http://localhost:3000/accounts/${id}`, {
+      const req = await fetch(`http://localhost:5000/accounts/${id}`, {
         headers: {
           "Content-Type": "application/json",
           "Accept": "application/json"
@@ -56,7 +56,7 @@ export const getAccounts = async () => {
   
   export const createAccount = async (formData) => {
     try {
-      const req = await fetch("http://localhost:3000/accounts", {
+      const req = await fetch("http://localhost:5000/accounts", {
         headers: {
           "Content-Type": "application/json",
           "Accept": "application/json"
@@ -85,7 +85,7 @@ export const getAccounts = async () => {
   
   export const updateAccount = async (id, formData) => {
     try {
-      const req = await fetch(`http://localhost:3000/accounts/${id}`, {
+      const req = await fetch(`http://localhost:5000/accounts/${id}`, {
         headers: {
           "Content-Type": "application/json",
           "Accept": "application/json"
@@ -114,7 +114,7 @@ export const getAccounts = async () => {
   
   export const deleteAccount = async (id) => {
     try {
-      const req = await fetch(`http://localhost:3000/accounts/${id}`, {
+      const req = await fetch(`http://localhost:5000/accounts/${id}`, {
         headers: {
           "Content-Type": "application/json",
           "Accept": "application/json"
