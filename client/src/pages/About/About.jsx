@@ -7,7 +7,7 @@ export default function About() {
         
             
        
-        <div className="content">
+        <div className="contents">
        
 <b>We are MonkeyGangCasino</b><br></br>
 <p>

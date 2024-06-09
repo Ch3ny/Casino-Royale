@@ -6,6 +6,20 @@ body {
   margin: 0;
 }
 
+.contenting{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /*Tomsa tady to chce zmenit barvy */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  height: 780px;
+  max-width: 300px;
+}
+
 .center-container {
   display: flex;
   flex-direction: column;
@@ -14,21 +28,22 @@ body {
   /*Tomsa tady to chce zmenit barvy */
   background-color: #fff;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  max-width: 400px;
   width: 100%;
-  height: 800px;
+  height: 780px;
+  max-width: 300px;
+
 }
 
-.content {
+.contentt {
   width: 100%;
   max-width: 300px;
 }
 
 .login-container {
-  width: 100%;
-  
+  width: 100%;  
+  max-width: 300px;
+
 }
 
 .form-group {
@@ -49,14 +64,7 @@ body {
   margin-top: 10px;
 }
 
-.separator {
- 
-  /* tady taky */
-  width: 80%;
-  height: 1px;
-  background-color: #ccc;
-  margin: 20px 0;
-}
+
 
 h1 {
   margin: 0;

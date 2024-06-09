@@ -57,7 +57,7 @@ export default function Registration() {
 
       <div className="separator"></div>
 
-      <div className="content">
+      <div className="contenting">
         <div className="login-container">
           <h2>Sign up</h2>
           <form id="register-form" onSubmit={handleSubmit}>

@@ -48,7 +48,7 @@ export default function Login() {
 
       <div className="separator"></div>
 
-      <div className="content">
+      <div className="contentt">
         <div className="login-container">
           <h2>Sign in</h2>
           <form id="login-form" onSubmit={handleLogin}>
