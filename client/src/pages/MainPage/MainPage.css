@@ -4,7 +4,7 @@
   width: 500px;
   height: 300px;
   position: absolute;
-  left: 20%;
+  left: 15%;
   bottom: 10%;
 }
 .over{
@@ -47,8 +47,8 @@
   width: 500px;
   height: 300px;
 position: absolute;
-right: 20%;
-top: 10%;
+right: 15%;
+top: 5%;
 }
 
 .overlay {
@@ -259,8 +259,8 @@ img {
   width: 500px;
   height: 300px;
   position: absolute;
-  left:  20%;
-  top: 10%;
+  left:  15%;
+  top: 5%;
   
 }
 
@@ -546,7 +546,7 @@ img {
   width: 500px;
   height: 300px;
   position: absolute;
-  right: 20%;
+  right: 15%;
   bottom: 10%;
   
 }
