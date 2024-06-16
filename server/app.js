@@ -10,11 +10,13 @@ mongoose
 
 
 const accountsRouter = require("./routes/accounts");
+const guessRouter = require("./routes/guessRoutes");
 
 app.use(cors());
 app.use(express.json());
 
 app.use("/accounts", accountsRouter);
+app.use("/guess", guessRouter);
 
 // Handle 404
 app.use((req, res, next) => {
