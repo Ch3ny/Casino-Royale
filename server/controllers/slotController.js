@@ -7,10 +7,14 @@ const spinReels = (req, res) => {
     return res.status(400).json({ message: "Invalid bet amount" });
   }
 
+  const getRandomSymbol = () => {
+    return symbols[Math.floor(Math.random() * symbols.length)]
+  };
+
   const newGrid = [
-    [symbols[Math.floor(Math.random() * symbols.length)], symbols[Math.floor(Math.random() * symbols.length)], symbols[Math.floor(Math.random() * symbols.length)]],
-    [symbols[Math.floor(Math.random() * symbols.length)], symbols[Math.floor(Math.random() * symbols.length)], symbols[Math.floor(Math.random() * symbols.length)]],
-    [symbols[Math.floor(Math.random() * symbols.length)], symbols[Math.floor(Math.random() * symbols.length)], symbols[Math.floor(Math.random() * symbols.length)]]
+    [getRandomSymbol(), getRandomSymbol(), getRandomSymbol()],
+    [getRandomSymbol(), getRandomSymbol(), getRandomSymbol()],
+    [getRandomSymbol(), getRandomSymbol(), getRandomSymbol()],
   ];
 
   let message = "Prohra!";
