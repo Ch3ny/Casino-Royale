@@ -69,7 +69,7 @@ const GuessingGame = () => {
           value={guess}
           onChange={(e) => setGuess(e.target.value)}
         />
-        <button onClick={handleGuess}>Hadej</button>
+        <button onClick={handleGuess} disabled={wallet.balance < 10}>Hadej</button>
         <p>{message}</p>
         <button onClick={handleRestart}>Začít znovu</button>
         <p>Stav: {wallet.balance}</p>

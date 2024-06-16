@@ -3,45 +3,69 @@ import "./ScratchCards.css";
 import { Link } from "react-router-dom";
 import Wallet from "../Wallet/Wallet";
 
-const prizes = ["🏅", "🥈", "🥉", "💎"];
-
-const getRandomPrize = () => {
-  const randomIndex = Math.floor(Math.random() * prizes.length);
-  if (prizes[randomIndex] === "💎") {
-    return "💎";
-  } else {
-    return prizes[randomIndex];
-  }
-};
-
 const ScratchCard = () => {
   const [cards, setCards] = useState(Array(15).fill(null));
   const [revealedCount, setRevealedCount] = useState(0);
   const [message, setMessage] = useState("");
   const wallet = Wallet();
 
-  const scratchCard = (index) => {
+  const scratchCard = async (index) => {
     if (cards[index] || revealedCount >= 15) return;
-    if (wallet.balance < 30) return; 
+    if (wallet.balance < 30) {
+      setMessage("Nedostatek peněz v peněžence");
+      return;
+    }
 
-    const newCards = [...cards];
-    newCards[index] = getRandomPrize();
-    setCards(newCards);
-    setRevealedCount(revealedCount + 1);
+    try {
+      const response = await fetch("http://localhost:5000/scratch/scratch", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ index }),
+      });
 
-    if (newCards[index] === "💎") {
-      setMessage("Vyhra!");
-      wallet.add(25);
+      if (!response.ok) {
+        throw new Error("Response was not ok");
+      }
+
+      const data = await response.json();
+      const newCards = [...cards];
+      newCards[index] = data.prize;
+      setCards(newCards);
+      setRevealedCount(revealedCount + 1);
+
+      if (data.prize === "💎") {
+        setMessage("Vyhra!");
+        wallet.add(25);
+      }
+    } catch (error) {
+      setMessage("Error: " + error.message);
     }
   };
 
-  const resetGame = () => {
-    if (wallet.balance < 30) return;
+  const resetGame = async () => {
+    if (wallet.balance < 30) {
+      setMessage("Nedostatek peněz v peněžence.");
+      return;
+    }
 
-    wallet.subtract(30);
-    setCards(Array(15).fill(null));
-    setRevealedCount(0);
-    setMessage("");
+    try {
+      const response = await fetch("http://localhost:5000/scratch/reset", {
+        method: "POST",
+      });
+
+      if (!response.ok) {
+        throw new Error("Response was not ok");
+      }
+
+      wallet.subtract(30);
+      setCards(Array(15).fill(null));
+      setRevealedCount(0);
+      setMessage("");
+    } catch (error) {
+      setMessage("Error: " + error.message);
+    }
   };
 
   return (

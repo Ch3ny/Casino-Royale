@@ -21,8 +21,8 @@ const SlotMachine = () => {
   };
 
   const spinReels = () => {
-    if (betAmount < 1 || betAmount > 100) {
-      alert("Sazka musí byt v rozmezi 1-100");
+    if (betAmount < 1 || betAmount > 1000) {
+      alert("Sazka musí byt v rozmezi 1-1000");
       return;
     }
 
@@ -50,7 +50,7 @@ const SlotMachine = () => {
       }
       if (grid[i][0] === grid[i][1] && grid[i][1] === grid[i][2]) {
         setMessage("Vyhra!");
-        wallet.add(betAmount * 2);
+        wallet.add(betAmount * 3);
         return;
       }
     }
@@ -76,7 +76,7 @@ console.log(message);
         ))}
       </div>
       <input type="number" value={betAmount} onChange={handleBetChange} />
-      <button onClick={spinReels}>Spin</button>
+      <button onClick={spinReels} disabled={wallet.balance < betAmount}>Spin</button>
       <p>{message}</p>
       <p>Stav: {wallet.balance}</p>
     </div>
